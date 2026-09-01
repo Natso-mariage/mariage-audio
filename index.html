@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -7,22 +6,19 @@
 
     <title>Un message pour les mariés 💍</title>
 
-    <meta name="description" content="Laissez un message audio aux mariés">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
     <style>
         * {
             box-sizing: border-box;
-            margin: 0;
-            padding: 0;
         }
 
         body {
+            margin: 0;
             min-height: 100vh;
             font-family: Georgia, "Times New Roman", serif;
-            background:
-                radial-gradient(circle at top left, rgba(255,255,255,0.65), transparent 35%),
-                linear-gradient(145deg, #eef1e5, #f5e5d7, #ead7c5);
-            color: #394536;
+            background: linear-gradient(135deg, #f7eee8, #fffaf7);
+            color: #5c4033;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -31,229 +27,141 @@
 
         .container {
             width: 100%;
-            max-width: 480px;
-            background: rgba(255, 255, 255, 0.90);
+            max-width: 520px;
+            background: rgba(255, 255, 255, 0.96);
             border-radius: 28px;
             padding: 35px 25px;
             text-align: center;
-            box-shadow: 0 15px 45px rgba(65, 70, 55, 0.18);
-            backdrop-filter: blur(8px);
+            box-shadow: 0 15px 50px rgba(92, 64, 51, 0.15);
         }
 
-        .rings {
-            font-size: 42px;
+        .heart {
+            font-size: 45px;
             margin-bottom: 10px;
         }
 
-        .subtitle {
-            font-family: Arial, sans-serif;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            font-size: 12px;
-            color: #a65f46;
-            margin-bottom: 12px;
-        }
-
         h1 {
-            font-size: 34px;
+            margin: 0;
+            font-size: 32px;
             font-weight: normal;
-            color: #526247;
-            margin-bottom: 8px;
+            color: #8a5a44;
         }
 
-        .intro {
-            font-family: Arial, sans-serif;
-            font-size: 15px;
+        .subtitle {
+            font-size: 17px;
             line-height: 1.6;
-            color: #666;
-            margin-bottom: 28px;
-        }
-
-        .form-group {
-            text-align: left;
-            margin-bottom: 22px;
+            margin: 15px 0 30px;
+            color: #80675a;
         }
 
         label {
             display: block;
-            font-family: Arial, sans-serif;
-            font-size: 14px;
-            font-weight: bold;
+            text-align: left;
             margin-bottom: 8px;
-            color: #526247;
+            font-size: 16px;
         }
 
         input {
             width: 100%;
-            padding: 15px 16px;
-            border: 1px solid #d5d8ca;
+            padding: 15px;
+            border: 1px solid #ddc8ba;
             border-radius: 14px;
             font-size: 16px;
+            font-family: inherit;
             outline: none;
-            background: #fafbf8;
+            margin-bottom: 20px;
         }
 
         input:focus {
-            border-color: #a65f46;
-            box-shadow: 0 0 0 3px rgba(166, 95, 70, 0.10);
-        }
-
-        .record-section {
-            display: none;
-        }
-
-        .record-section.active {
-            display: block;
-        }
-
-        .timer {
-            font-family: Arial, sans-serif;
-            font-size: 38px;
-            font-weight: bold;
-            color: #a65f46;
-            margin: 20px 0;
-        }
-
-        .microphone {
-            width: 105px;
-            height: 105px;
-            border-radius: 50%;
-            border: none;
-            background: #a65f46;
-            color: white;
-            font-size: 42px;
-            cursor: pointer;
-            box-shadow: 0 8px 20px rgba(166, 95, 70, 0.30);
-            transition: transform 0.2s, background 0.2s;
-        }
-
-        .microphone:hover {
-            transform: scale(1.04);
-        }
-
-        .microphone:active {
-            transform: scale(0.96);
-        }
-
-        .microphone.recording {
-            background: #c94f4f;
-            animation: pulse 1.2s infinite;
-        }
-
-        @keyframes pulse {
-            0% {
-                box-shadow: 0 0 0 0 rgba(201, 79, 79, 0.45);
-            }
-
-            70% {
-                box-shadow: 0 0 0 20px rgba(201, 79, 79, 0);
-            }
-
-            100% {
-                box-shadow: 0 0 0 0 rgba(201, 79, 79, 0);
-            }
-        }
-
-        .status {
-            font-family: Arial, sans-serif;
-            font-size: 14px;
-            margin-top: 15px;
-            color: #666;
-            min-height: 20px;
-        }
-
-        .audio-container {
-            display: none;
-            margin-top: 25px;
-        }
-
-        .audio-container.active {
-            display: block;
-        }
-
-        audio {
-            width: 100%;
-            margin-bottom: 15px;
+            border-color: #a9785c;
         }
 
         button {
-            font-family: Arial, sans-serif;
-        }
-
-        .main-button {
             width: 100%;
             border: none;
-            padding: 16px;
-            border-radius: 14px;
-            background: #526247;
-            color: white;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-            margin-top: 10px;
-        }
-
-        .main-button:hover {
-            background: #435138;
-        }
-
-        .secondary-button {
-            width: 100%;
-            border: 1px solid #a65f46;
-            padding: 14px;
-            border-radius: 14px;
-            background: transparent;
-            color: #a65f46;
-            font-size: 15px;
-            font-weight: bold;
-            cursor: pointer;
-            margin-top: 10px;
-        }
-
-        .secondary-button:hover {
-            background: #faf0ea;
-        }
-
-        .success {
-            display: none;
-            margin-top: 25px;
-            padding: 18px;
             border-radius: 15px;
-            background: #edf2e7;
-            color: #526247;
-            font-family: Arial, sans-serif;
+            padding: 16px;
+            font-size: 17px;
+            font-family: inherit;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        #startButton {
+            background: #a9785c;
+            color: white;
+        }
+
+        #startButton:hover {
+            background: #8f624b;
+        }
+
+        #recordButton {
+            background: #b85c5c;
+            color: white;
+            margin-top: 15px;
+        }
+
+        #stopButton {
+            background: #6d5144;
+            color: white;
+            margin-top: 15px;
+        }
+
+        #sendButton {
+            background: #7d9b76;
+            color: white;
+            margin-top: 15px;
+        }
+
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .recording {
+            margin: 20px 0;
+            font-size: 18px;
+        }
+
+        .timer {
+            font-size: 38px;
+            font-weight: bold;
+            margin: 10px 0;
+            color: #a64d4d;
+        }
+
+        .status {
+            margin-top: 20px;
+            padding: 14px;
+            border-radius: 12px;
+            font-size: 15px;
             line-height: 1.5;
         }
 
-        .success.active {
-            display: block;
+        .success {
+            background: #e9f4e5;
+            color: #45643d;
         }
 
-        .heart {
-            margin-top: 28px;
-            font-size: 20px;
+        .error {
+            background: #fae5e5;
+            color: #873d3d;
         }
 
-        .footer {
-            font-family: Arial, sans-serif;
-            font-size: 11px;
-            color: #999;
+        .audio-preview {
+            width: 100%;
             margin-top: 20px;
         }
 
-        @media (max-width: 420px) {
-            .container {
-                padding: 28px 20px;
-            }
-
-            h1 {
-                font-size: 29px;
-            }
-
-            .microphone {
-                width: 95px;
-                height: 95px;
-            }
+        .small {
+            margin-top: 25px;
+            font-size: 13px;
+            color: #9a8174;
         }
     </style>
 </head>
@@ -262,139 +170,79 @@
 
 <div class="container">
 
-    <div class="rings">💍</div>
+    <div class="heart">💍</div>
 
-    <div class="subtitle">Notre mariage</div>
+    <h1>Un message pour les mariés</h1>
 
-    <h1>Laissez-nous un message</h1>
-
-    <p class="intro">
-        Votre voix est un souvenir précieux.
-        Enregistrez quelques mots, une histoire,
-        un conseil ou simplement vos vœux pour les mariés.
+    <p class="subtitle">
+        Laissez-nous un petit message audio,
+        un souvenir, une bénédiction ou simplement quelques mots d'amour. ❤️
     </p>
 
-    <!-- PRÉNOM -->
+    <!-- ÉTAPE 1 -->
     <div id="nameSection">
 
-        <div class="form-group">
+        <label for="guestName">
+            Votre prénom
+        </label>
 
-            <label for="guestName">
-                Votre prénom
-            </label>
-
-            <input
-                type="text"
-                id="guestName"
-                placeholder="Ex. Marie"
-                maxlength="40"
-                autocomplete="name"
-            >
-
-        </div>
-
-        <button
-            class="main-button"
-            id="startButton"
-            onclick="startExperience()"
+        <input
+            type="text"
+            id="guestName"
+            placeholder="Exemple : Marie"
+            maxlength="50"
+            autocomplete="name"
         >
-            🎙️ Commencer
+
+        <button id="startButton">
+            🎙️ Commencer mon message
         </button>
 
     </div>
 
 
-    <!-- ENREGISTREMENT -->
+    <!-- ÉTAPE 2 -->
+    <div id="recordSection" class="hidden">
 
-    <div
-        id="recordSection"
-        class="record-section"
-    >
+        <p>
+            Bonjour <strong id="displayName"></strong> ❤️
+        </p>
 
-        <p
-            id="welcomeMessage"
-            style="
-                font-family: Arial, sans-serif;
-                font-size: 15px;
-                margin-bottom: 10px;
-            "
-        ></p>
+        <p>
+            Appuyez sur le bouton pour commencer votre message.
+        </p>
 
-        <div
-            id="timer"
-            class="timer"
-        >
-            00:00
-        </div>
-
-        <button
-            id="recordButton"
-            class="microphone"
-            onclick="toggleRecording()"
-            aria-label="Enregistrer"
-        >
-            🎙️
+        <button id="recordButton">
+            🔴 Commencer l'enregistrement
         </button>
 
-        <div
-            id="status"
-            class="status"
-        >
-            Appuyez sur le micro pour commencer
+        <button id="stopButton" class="hidden">
+            ⏹️ Arrêter l'enregistrement
+        </button>
+
+        <div id="recordingStatus" class="recording hidden">
+            <div>🎙️ Enregistrement en cours...</div>
+            <div id="timer" class="timer">00:00</div>
         </div>
 
+        <audio
+            id="audioPreview"
+            class="audio-preview hidden"
+            controls>
+        </audio>
 
-        <!-- AUDIO -->
-
-        <div
-            id="audioContainer"
-            class="audio-container"
-        >
-
-            <audio
-                id="audioPlayer"
-                controls
-            ></audio>
-
-            <button
-                class="main-button"
-                onclick="sendAudio()"
-            >
-                💌 Envoyer mon message
-            </button>
-
-            <button
-                class="secondary-button"
-                onclick="resetRecording()"
-            >
-                🔄 Refaire l'enregistrement
-            </button>
-
-        </div>
-
-
-        <!-- MESSAGE DE SUCCÈS -->
-
-        <div
-            id="successMessage"
-            class="success"
-        >
-            <strong>Merci ❤️</strong>
-            <br><br>
-
-            Votre message est prêt à être envoyé aux mariés.
-
-        </div>
+        <button id="sendButton" class="hidden">
+            💌 Envoyer mon message
+        </button>
 
     </div>
 
 
-    <div class="heart">
-        🌿 🤍 🌿
-    </div>
+    <!-- MESSAGE -->
+    <div id="status"></div>
 
-    <div class="footer">
-        Un souvenir enregistré avec amour
+    <div class="small">
+        Merci de participer à ce souvenir unique. ❤️
     </div>
 
 </div>
@@ -402,85 +250,173 @@
 
 <script>
 
-    let mediaRecorder;
-    let audioChunks = [];
-    let audioBlob;
-    let audioUrl;
+    // =========================================================
+    // CONFIGURATION SUPABASE
+    // =========================================================
 
-    let timerInterval;
-    let seconds = 0;
+    const SUPABASE_URL = "https://prwrmivexadjyonqrxbv.supabase.co";
+
+    const SUPABASE_KEY =
+        "sb_publishable_CjH7zwRp741-absceWdu9A_T5BL5wnN";
+
+    const supabaseClient =
+        window.supabase.createClient(
+            SUPABASE_URL,
+            SUPABASE_KEY
+        );
+
+
+    // =========================================================
+    // VARIABLES
+    // =========================================================
 
     let guestName = "";
+    let mediaRecorder = null;
+    let audioChunks = [];
+    let audioBlob = null;
+    let timerInterval = null;
+    let seconds = 0;
 
 
-    /*
-    --------------------------------------------------
-    COMMENCER
-    --------------------------------------------------
-    */
+    // =========================================================
+    // ELEMENTS HTML
+    // =========================================================
 
-    function startExperience() {
+    const nameSection =
+        document.getElementById("nameSection");
 
-        const nameInput =
-            document.getElementById("guestName");
+    const recordSection =
+        document.getElementById("recordSection");
 
-        guestName =
-            nameInput.value.trim();
+    const guestNameInput =
+        document.getElementById("guestName");
+
+    const displayName =
+        document.getElementById("displayName");
+
+    const startButton =
+        document.getElementById("startButton");
+
+    const recordButton =
+        document.getElementById("recordButton");
+
+    const stopButton =
+        document.getElementById("stopButton");
+
+    const sendButton =
+        document.getElementById("sendButton");
+
+    const audioPreview =
+        document.getElementById("audioPreview");
+
+    const recordingStatus =
+        document.getElementById("recordingStatus");
+
+    const timer =
+        document.getElementById("timer");
+
+    const status =
+        document.getElementById("status");
 
 
-        if (!guestName) {
+    // =========================================================
+    // MESSAGE
+    // =========================================================
 
-            alert(
-                "Veuillez entrer votre prénom avant de commencer."
-            );
+    function showMessage(message, type = "") {
 
-            nameInput.focus();
+        status.innerHTML = message;
 
-            return;
-        }
-
-
-        document.getElementById("nameSection")
-            .style.display = "none";
-
-
-        document.getElementById("recordSection")
-            .classList.add("active");
-
-
-        document.getElementById("welcomeMessage")
-            .textContent =
-            "Bonjour " + guestName + " ❤️";
-
-
-        requestMicrophone();
+        status.className = "status " + type;
 
     }
 
 
-    /*
-    --------------------------------------------------
-    DEMANDER LE MICRO
-    --------------------------------------------------
-    */
+    // =========================================================
+    // ETAPE 1 : PRENDRE LE PRENOM
+    // =========================================================
 
-    async function requestMicrophone() {
+    startButton.addEventListener("click", function () {
+
+        guestName =
+            guestNameInput.value.trim();
+
+        if (!guestName) {
+
+            showMessage(
+                "Veuillez entrer votre prénom. 😊",
+                "error"
+            );
+
+            return;
+        }
+
+        displayName.textContent =
+            guestName;
+
+        nameSection.classList.add("hidden");
+
+        recordSection.classList.remove("hidden");
+
+        showMessage("");
+
+    });
+
+
+    // =========================================================
+    // ETAPE 2 : DEMARRER ENREGISTREMENT
+    // =========================================================
+
+    recordButton.addEventListener("click", async function () {
 
         try {
 
+            if (!navigator.mediaDevices ||
+                !navigator.mediaDevices.getUserMedia) {
+
+                showMessage(
+                    "Votre navigateur ne permet pas l'utilisation du microphone.",
+                    "error"
+                );
+
+                return;
+            }
+
+
             const stream =
-                await navigator.mediaDevices
-                    .getUserMedia({
-                        audio: true
-                    });
+                await navigator.mediaDevices.getUserMedia({
+                    audio: true
+                });
+
+
+            audioChunks = [];
+
+
+            let mimeType = "";
+
+            if (MediaRecorder.isTypeSupported("audio/webm")) {
+
+                mimeType = "audio/webm";
+
+            } else if (MediaRecorder.isTypeSupported("audio/mp4")) {
+
+                mimeType = "audio/mp4";
+
+            } else if (MediaRecorder.isTypeSupported("audio/ogg")) {
+
+                mimeType = "audio/ogg";
+            }
 
 
             mediaRecorder =
-                new MediaRecorder(stream);
+                mimeType
+                    ? new MediaRecorder(stream, { mimeType })
+                    : new MediaRecorder(stream);
 
 
-            mediaRecorder.ondataavailable =
-                function(event) {
+            mediaRecorder.addEventListener(
+                "dataavailable",
+                function (event) {
 
                     if (event.data.size > 0) {
 
@@ -488,333 +424,290 @@
 
                     }
 
-                };
+                }
+            );
 
 
-            mediaRecorder.onstop =
-                function() {
+            mediaRecorder.addEventListener(
+                "stop",
+                function () {
 
-                    audioBlob =
-                        new Blob(
-                            audioChunks,
-                            {
-                                type: "audio/webm"
-                            }
-                        );
-
-
-                    audioUrl =
-                        URL.createObjectURL(
-                            audioBlob
-                        );
+                    audioBlob = new Blob(
+                        audioChunks,
+                        {
+                            type:
+                                mimeType ||
+                                "audio/webm"
+                        }
+                    );
 
 
-                    const audioPlayer =
-                        document.getElementById(
-                            "audioPlayer"
-                        );
+                    const audioURL =
+                        URL.createObjectURL(audioBlob);
+
+                    audioPreview.src =
+                        audioURL;
+
+                    audioPreview.classList.remove("hidden");
+
+                    sendButton.classList.remove("hidden");
+
+                    stream.getTracks().forEach(
+                        track => track.stop()
+                    );
+
+                }
+            );
 
 
-                    audioPlayer.src =
-                        audioUrl;
+            mediaRecorder.start();
 
 
-                    document
-                        .getElementById(
-                            "audioContainer"
-                        )
-                        .classList.add("active");
+            recordButton.classList.add("hidden");
+
+            stopButton.classList.remove("hidden");
+
+            recordingStatus.classList.remove("hidden");
+
+            sendButton.classList.add("hidden");
 
 
-                    document
-                        .getElementById("status")
-                        .textContent =
-                        "Écoutez votre message avant de l'envoyer ❤️";
+            seconds = 0;
 
-                };
+            updateTimer();
+
+            timerInterval =
+                setInterval(
+                    updateTimer,
+                    1000
+                );
+
+
+            showMessage("");
+
+        } catch (error) {
+
+            console.error(error);
+
+            showMessage(
+                "Impossible d'accéder au microphone. Vérifiez que vous avez autorisé le microphone.",
+                "error"
+            );
+
+        }
+
+    });
+
+
+    // =========================================================
+    // TIMER
+    // =========================================================
+
+    function updateTimer() {
+
+        const minutes =
+            Math.floor(seconds / 60)
+                .toString()
+                .padStart(2, "0");
+
+        const secs =
+            (seconds % 60)
+                .toString()
+                .padStart(2, "0");
+
+        timer.textContent =
+            minutes + ":" + secs;
+
+        seconds++;
+
+    }
+
+
+    // =========================================================
+    // ARRETER ENREGISTREMENT
+    // =========================================================
+
+    stopButton.addEventListener("click", function () {
+
+        if (
+            mediaRecorder &&
+            mediaRecorder.state !== "inactive"
+        ) {
+
+            mediaRecorder.stop();
+
+        }
+
+        clearInterval(timerInterval);
+
+        recordingStatus.classList.add("hidden");
+
+        stopButton.classList.add("hidden");
+
+        recordButton.classList.remove("hidden");
+
+    });
+
+
+    // =========================================================
+    // ENVOYER VERS SUPABASE
+    // =========================================================
+
+    sendButton.addEventListener("click", async function () {
+
+        if (!audioBlob) {
+
+            showMessage(
+                "Aucun enregistrement à envoyer.",
+                "error"
+            );
+
+            return;
+        }
+
+
+        sendButton.disabled = true;
+
+        sendButton.textContent =
+            "⏳ Envoi en cours...";
+
+
+        try {
+
+            // -------------------------------------------------
+            // Vérification taille
+            // -------------------------------------------------
+
+            const maxSize =
+                10 * 1024 * 1024;
+
+            if (audioBlob.size > maxSize) {
+
+                throw new Error(
+                    "Votre enregistrement dépasse la limite de 10 MB."
+                );
+
+            }
+
+
+            // -------------------------------------------------
+            // Extension
+            // -------------------------------------------------
+
+            let extension = "webm";
+
+            if (
+                audioBlob.type.includes("mp4")
+            ) {
+
+                extension = "mp4";
+
+            } else if (
+                audioBlob.type.includes("ogg")
+            ) {
+
+                extension = "ogg";
+            }
+
+
+            // -------------------------------------------------
+            // Nom sécurisé
+            // -------------------------------------------------
+
+            const safeName =
+                guestName
+                    .normalize("NFD")
+                    .replace(/[\u0300-\u036f]/g, "")
+                    .replace(/[^a-zA-Z0-9]/g, "_")
+                    .substring(0, 40);
+
+
+            const timestamp =
+                Date.now();
+
+
+            const fileName =
+                safeName +
+                "_" +
+                timestamp +
+                "." +
+                extension;
+
+
+            // -------------------------------------------------
+            // Upload
+            // -------------------------------------------------
+
+            const { data, error } =
+                await supabaseClient
+                    .storage
+                    .from("audios")
+                    .upload(
+                        fileName,
+                        audioBlob,
+                        {
+                            contentType:
+                                audioBlob.type ||
+                                "audio/webm",
+
+                            upsert: false
+                        }
+                    );
+
+
+            if (error) {
+
+                console.error(error);
+
+                throw error;
+
+            }
+
+
+            console.log(
+                "Fichier envoyé :",
+                data
+            );
+
+
+            // -------------------------------------------------
+            // SUCCES
+            // -------------------------------------------------
+
+            showMessage(
+                "💌 Merci " +
+                guestName +
+                " ! Votre message a bien été envoyé aux mariés. ❤️",
+                "success"
+            );
+
+
+            sendButton.textContent =
+                "✅ Message envoyé";
+
+            audioPreview.classList.add("hidden");
 
 
         } catch (error) {
 
             console.error(error);
 
-            document
-                .getElementById("status")
-                .textContent =
-                "⚠️ L'accès au microphone est nécessaire pour enregistrer.";
+            showMessage(
+                "❌ Une erreur est survenue pendant l'envoi : " +
+                error.message,
+                "error"
+            );
+
+            sendButton.disabled = false;
+
+            sendButton.textContent =
+                "💌 Envoyer mon message";
 
         }
 
-    }
-
-
-    /*
-    --------------------------------------------------
-    ENREGISTREMENT
-    --------------------------------------------------
-    */
-
-    function toggleRecording() {
-
-        if (!mediaRecorder) {
-
-            alert(
-                "Le microphone n'est pas disponible."
-            );
-
-            return;
-        }
-
-
-        if (mediaRecorder.state === "inactive") {
-
-            startRecording();
-
-        } else {
-
-            stopRecording();
-
-        }
-
-    }
-
-
-    /*
-    --------------------------------------------------
-    COMMENCER L'ENREGISTREMENT
-    --------------------------------------------------
-    */
-
-    function startRecording() {
-
-        audioChunks = [];
-
-        seconds = 0;
-
-        updateTimer();
-
-
-        mediaRecorder.start();
-
-
-        const button =
-            document.getElementById(
-                "recordButton"
-            );
-
-
-        button.classList.add(
-            "recording"
-        );
-
-
-        button.textContent =
-            "⏹️";
-
-
-        document
-            .getElementById("status")
-            .textContent =
-            "Enregistrement en cours...";
-
-
-        document
-            .getElementById("audioContainer")
-            .classList.remove("active");
-
-
-        document
-            .getElementById("successMessage")
-            .classList.remove("active");
-
-
-        timerInterval =
-            setInterval(
-                function() {
-
-                    seconds++;
-
-                    updateTimer();
-
-                },
-                1000
-            );
-
-    }
-
-
-    /*
-    --------------------------------------------------
-    ARRÊTER
-    --------------------------------------------------
-    */
-
-    function stopRecording() {
-
-        mediaRecorder.stop();
-
-
-        clearInterval(
-            timerInterval
-        );
-
-
-        const button =
-            document.getElementById(
-                "recordButton"
-            );
-
-
-        button.classList.remove(
-            "recording"
-        );
-
-
-        button.textContent =
-            "🎙️";
-
-
-        document
-            .getElementById("status")
-            .textContent =
-            "Préparation de votre message...";
-
-    }
-
-
-    /*
-    --------------------------------------------------
-    TIMER
-    --------------------------------------------------
-    */
-
-    function updateTimer() {
-
-        const minutes =
-            Math.floor(
-                seconds / 60
-            )
-            .toString()
-            .padStart(2, "0");
-
-
-        const secs =
-            (seconds % 60)
-            .toString()
-            .padStart(2, "0");
-
-
-        document
-            .getElementById("timer")
-            .textContent =
-            minutes + ":" + secs;
-
-    }
-
-
-    /*
-    --------------------------------------------------
-    REFAIRE
-    --------------------------------------------------
-    */
-
-    function resetRecording() {
-
-        audioChunks = [];
-
-        audioBlob = null;
-
-
-        if (audioUrl) {
-
-            URL.revokeObjectURL(
-                audioUrl
-            );
-
-        }
-
-
-        document
-            .getElementById("audioPlayer")
-            .src = "";
-
-
-        document
-            .getElementById("audioContainer")
-            .classList.remove("active");
-
-
-        document
-            .getElementById("successMessage")
-            .classList.remove("active");
-
-
-        seconds = 0;
-
-        updateTimer();
-
-
-        document
-            .getElementById("status")
-            .textContent =
-            "Appuyez sur le micro pour recommencer.";
-
-    }
-
-
-    /*
-    --------------------------------------------------
-    ENVOYER
-    --------------------------------------------------
-    */
-
-    function sendAudio() {
-
-        if (!audioBlob) {
-
-            alert(
-                "Aucun enregistrement disponible."
-            );
-
-            return;
-        }
-
-
-        /*
-        Pour l'instant, le fichier est uniquement
-        disponible dans le navigateur.
-
-        Nous connecterons cette fonction à un
-        stockage en ligne dans l'étape suivante.
-        */
-
-
-        document
-            .getElementById("successMessage")
-            .classList.add("active");
-
-
-        document
-            .getElementById("status")
-            .textContent =
-            "Votre message est prêt ❤️";
-
-
-        console.log(
-            "Nom de l'invité :",
-            guestName
-        );
-
-
-        console.log(
-            "Audio :",
-            audioBlob
-        );
-
-    }
+    });
 
 </script>
 
 </body>
 </html>
-```
