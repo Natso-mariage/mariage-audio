@@ -2,1540 +2,697 @@
 <html lang="fr">
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>HENINTSOA & NAJAINA — Livre d'or audio</title>
+    <meta charset="UTF-8">
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>HENINTSOA & NAJAINA 💍</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+    <!-- SUPABASE -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 
-<style>
+    <style>
 
-/* =====================================================
-   VARIABLES
-===================================================== */
+        /* =====================================================
+           VARIABLES COULEURS
+        ===================================================== */
 
-:root {
+        :root {
 
-    --sage: #A3B18A;
-    --sage-dark: #687857;
-    --sage-deep: #4E6044;
+            --sage: #A3B18A;
+            --sage-dark: #687857;
 
-    --terracotta: #C96F4A;
-    --terracotta-dark: #9F5035;
+            --terracotta: #C96F4A;
+            --terracotta-dark: #9F5035;
 
-    --cream: #F8F2E9;
-    --cream-dark: #EDE1D2;
+            --cream: #F8F2E9;
 
-    --rose: #D9A39A;
-    --rose-light: #F2DDD8;
+            --text: #4E443D;
 
-    --brown: #5A4A40;
-    --brown-light: #75675F;
+            --white-transparent: rgba(255,255,255,0.78);
 
-    --white: #FFFFFF;
+        }
 
-    --glass: rgba(255,255,255,.82);
 
-}
+        /* =====================================================
+           RESET
+        ===================================================== */
 
+        * {
+            box-sizing: border-box;
+        }
 
-/* =====================================================
-   RESET
-===================================================== */
 
-* {
-    box-sizing: border-box;
-}
+        html {
+            scroll-behavior: smooth;
+        }
 
-html {
-    scroll-behavior: smooth;
-}
 
-body {
+        body {
 
-    margin: 0;
+            margin: 0;
 
-    min-height: 100vh;
+            min-height: 100vh;
 
-    color: var(--brown);
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
 
-    font-family:
-        "DM Sans",
-        Arial,
-        sans-serif;
+            color: var(--text);
 
-    background:
+            background:
 
-        linear-gradient(
-            rgba(64,75,51,.40),
-            rgba(128,73,51,.45)
-        ),
+                linear-gradient(
+                    rgba(163,177,138,0.45),
+                    rgba(201,111,74,0.35)
+                ),
 
-        url("FANOHARA%20%26%20NAJAINA%20%28615%29.jpg");
+                linear-gradient(
+                    135deg,
+                    #dfe5d2,
+                    #f6dfd2
+                );
 
-    background-size: cover;
+            display: flex;
 
-    background-position: center;
+            justify-content: center;
 
-    background-attachment: fixed;
+            padding: 25px 15px;
 
-    background-repeat: no-repeat;
+        }
 
-    padding: 22px 15px 40px;
 
-}
+        /* =====================================================
+           CONTENEUR
+        ===================================================== */
 
+        .page {
 
-/* =====================================================
-   PAGE
-===================================================== */
+            width: 100%;
 
-.page {
+            max-width: 650px;
 
-    width: 100%;
+        }
 
-    max-width: 1080px;
 
-    margin: auto;
+        /* =====================================================
+           HERO
+        ===================================================== */
 
-}
+        .hero {
 
+            min-height: 430px;
 
-/* =====================================================
-   HERO
-===================================================== */
+            border-radius: 35px;
 
-.hero {
+            overflow: hidden;
 
-    min-height: 590px;
+            position: relative;
 
-    border-radius: 38px;
+            display: flex;
 
-    overflow: hidden;
+            align-items: center;
 
-    position: relative;
+            justify-content: center;
 
-    display: flex;
+            text-align: center;
 
-    align-items: center;
+            margin-bottom: 25px;
 
-    justify-content: center;
+            background:
 
-    text-align: center;
+                linear-gradient(
+                    rgba(50,55,40,0.25),
+                    rgba(50,55,40,0.45)
+                ),
 
-    margin-bottom: 25px;
+                /* PHOTO À AJOUTER PLUS TARD */
 
-    background:
+                linear-gradient(
+                    135deg,
+                    #A3B18A,
+                    #C96F4A
+                );
 
-        linear-gradient(
-            90deg,
-            rgba(32,42,28,.62),
-            rgba(80,53,39,.15),
-            rgba(50,38,31,.38)
-        ),
+            box-shadow:
+                0 20px 60px rgba(70,60,50,0.25);
 
-        url("FANOHARA%20%26%20NAJAINA%20%28615%29.jpg");
+        }
 
-    background-size: cover;
 
-    background-position: center;
+        .hero-content {
 
-    box-shadow:
-        0 25px 70px
-        rgba(35,30,25,.38);
+            color: white;
 
-}
+            padding: 35px 20px;
 
+            text-shadow:
+                0 2px 10px rgba(0,0,0,0.3);
 
-/* voile */
+        }
 
-.hero::after {
 
-    content: "";
+        .small-title {
 
-    position: absolute;
+            letter-spacing: 4px;
 
-    inset: 0;
+            font-size: 13px;
 
-    background:
-        radial-gradient(
-            circle at center,
-            transparent 20%,
-            rgba(25,30,22,.28) 100%
-        );
+            margin-bottom: 25px;
 
-    pointer-events: none;
+        }
 
-}
 
+        .welcome {
 
-.hero-content {
+            font-size: 20px;
 
-    position: relative;
+            font-style: italic;
 
-    z-index: 2;
+            margin-bottom: 10px;
 
-    color: white;
+        }
 
-    padding: 45px 25px;
 
-    max-width: 800px;
+        .names {
 
-    text-shadow:
-        0 3px 20px
-        rgba(0,0,0,.55);
+            font-size: clamp(40px, 10vw, 70px);
 
-}
+            line-height: 1;
 
+            font-weight: normal;
 
-/* =====================================================
-   HERO TYPOGRAPHY
-===================================================== */
+        }
 
-.small-title {
 
-    font-family:
-        "DM Sans",
-        sans-serif;
+        .names span {
 
-    font-size: 12px;
+            display: block;
 
-    letter-spacing: 5px;
+            font-size: 28px;
 
-    text-transform: uppercase;
+            margin: 10px 0;
 
-    margin-bottom: 25px;
+        }
 
-    opacity: .95;
 
-}
+        .date {
 
+            margin-top: 25px;
 
-.welcome {
+            letter-spacing: 4px;
 
-    font-family:
-        "Great Vibes",
-        cursive;
+            font-size: 14px;
 
-    font-size: 35px;
+        }
 
-    margin-bottom: 8px;
 
-}
+        .hero-line {
 
+            margin: 20px auto;
 
-.names {
+            font-size: 22px;
 
-    font-family:
-        "Cormorant Garamond",
-        Georgia,
-        serif;
+        }
 
-    font-size:
-        clamp(60px, 10vw, 105px);
 
-    font-weight: 500;
+        .hero-message {
 
-    line-height: .78;
+            font-size: 18px;
 
-    letter-spacing: 2px;
+            line-height: 1.7;
 
-}
+            font-style: italic;
 
+        }
 
-.names span {
 
-    display: block;
+        /* =====================================================
+           CARTES
+        ===================================================== */
 
-    font-family:
-        "Great Vibes",
-        cursive;
+        .card {
 
-    font-size: 50px;
+            background: var(--white-transparent);
 
-    color: #E7A17F;
+            backdrop-filter: blur(12px);
 
-    line-height: 1.25;
+            -webkit-backdrop-filter: blur(12px);
 
-    margin: 5px 0;
+            border:
 
-}
+                1px solid
+                rgba(255,255,255,0.65);
 
+            border-radius: 28px;
 
-.date {
+            padding: 30px 25px;
 
-    font-size: 13px;
+            margin-bottom: 22px;
 
-    letter-spacing: 5px;
+            box-shadow:
+                0 12px 40px rgba(70,60,50,0.12);
 
-    margin-top: 27px;
+        }
 
-    font-weight: 500;
 
-}
+        .card-icon {
 
+            width: 55px;
 
-.hero-line {
+            height: 55px;
 
-    margin: 24px auto 15px;
+            border-radius: 50%;
 
-    font-size: 20px;
+            margin: 0 auto 15px;
 
-    letter-spacing: 3px;
+            display: flex;
 
-}
+            align-items: center;
 
+            justify-content: center;
 
-.hero-message {
+            font-size: 25px;
 
-    font-family:
-        "Cormorant Garamond",
-        Georgia,
-        serif;
+        }
 
-    font-size: 25px;
 
-    line-height: 1.25;
+        .sage-icon {
 
-    font-style: italic;
+            background: var(--sage);
 
-}
+            color: white;
 
+        }
 
-/* =====================================================
-   FLOATING BADGE
-===================================================== */
 
-.hero-badge {
+        .terracotta-icon {
 
-    position: absolute;
+            background: var(--terracotta);
 
-    top: 25px;
+            color: white;
 
-    right: 25px;
+        }
 
-    z-index: 5;
 
-    background:
-        rgba(255,248,238,.90);
+        h2 {
 
-    color:
-        var(--sage-deep);
+            text-align: center;
 
-    padding:
-        11px 18px;
+            font-size: 20px;
 
-    border-radius: 50px;
+            letter-spacing: 2px;
 
-    font-size: 12px;
+            font-weight: normal;
 
-    box-shadow:
-        0 8px 25px
-        rgba(0,0,0,.15);
+            margin: 10px 0 15px;
 
-    backdrop-filter:
-        blur(8px);
+        }
 
-}
 
+        .description {
 
-/* =====================================================
-   CARDS
-===================================================== */
+            text-align: center;
 
-.card {
+            line-height: 1.7;
 
-    position: relative;
+            font-size: 16px;
 
-    background:
-        var(--glass);
+            color: #70645c;
 
-    backdrop-filter:
-        blur(18px);
+        }
 
-    -webkit-backdrop-filter:
-        blur(18px);
 
-    border:
-        1px solid
-        rgba(255,255,255,.85);
+        /* =====================================================
+           FORMULAIRE
+        ===================================================== */
 
-    border-radius: 30px;
+        label {
 
-    padding: 35px;
+            display: block;
 
-    margin-bottom: 22px;
+            margin: 25px 0 8px;
 
-    box-shadow:
-        0 18px 55px
-        rgba(55,45,37,.20);
+            font-size: 15px;
 
-    overflow: hidden;
+        }
 
-}
 
+        input {
 
-.card::before {
+            width: 100%;
 
-    content: "";
+            padding: 17px;
 
-    position: absolute;
+            border-radius: 15px;
 
-    width: 180px;
+            border:
 
-    height: 180px;
+                1px solid
+                #d8c7b9;
 
-    border-radius: 50%;
+            background: rgba(255,255,255,0.85);
 
-    background:
-        rgba(163,177,138,.10);
+            font-family: inherit;
 
-    top: -90px;
+            font-size: 17px;
 
-    right: -50px;
+            outline: none;
 
-}
+        }
 
 
-/* =====================================================
-   NAME CARD
-===================================================== */
+        input:focus {
 
-.name-grid {
+            border-color: var(--sage);
 
-    display: grid;
+            box-shadow:
+                0 0 0 3px
+                rgba(163,177,138,0.2);
 
-    grid-template-columns:
-        1.1fr
-        1fr;
+        }
 
-    gap: 40px;
 
-    align-items: center;
+        /* =====================================================
+           BOUTONS
+        ===================================================== */
 
-}
+        button {
 
+            border: none;
 
-.intro {
+            cursor: pointer;
 
-    display: flex;
+            font-family: inherit;
 
-    gap: 20px;
+            transition: 0.25s;
 
-    align-items: flex-start;
+        }
 
-}
 
+        .main-button {
 
-.card-icon {
+            width: 100%;
 
-    min-width: 62px;
+            margin-top: 15px;
 
-    width: 62px;
+            padding: 17px;
 
-    height: 62px;
+            border-radius: 16px;
 
-    border-radius: 50%;
+            background: var(--terracotta);
 
-    display: flex;
+            color: white;
 
-    align-items: center;
+            font-size: 16px;
 
-    justify-content: center;
+            font-weight: bold;
 
-    font-size: 25px;
+            letter-spacing: 0.5px;
 
-}
+        }
 
 
-.sage-icon {
+        .main-button:hover {
 
-    background:
-        var(--sage);
+            background:
+                var(--terracotta-dark);
 
-    color: white;
+            transform: translateY(-2px);
 
-}
+        }
 
 
-.terracotta-icon {
+        /* =====================================================
+           ENREGISTREMENT
+        ===================================================== */
 
-    background:
-        var(--terracotta);
+        .record-area {
 
-    color: white;
+            text-align: center;
 
-}
+            padding: 20px 0;
 
+        }
 
-.section-label {
 
-    font-size: 12px;
+        .record-button {
 
-    letter-spacing: 2.5px;
+            width: 105px;
 
-    color:
-        var(--sage-deep);
+            height: 105px;
 
-    font-weight: 600;
+            border-radius: 50%;
 
-    margin-bottom: 8px;
+            background: var(--terracotta);
 
-}
+            color: white;
 
+            font-size: 35px;
 
-h2 {
+            box-shadow:
 
-    margin: 0 0 12px;
+                0 10px 30px
+                rgba(201,111,74,0.35);
 
-    font-family:
-        "Cormorant Garamond",
-        Georgia,
-        serif;
+        }
 
-    font-size: 29px;
 
-    font-weight: 600;
+        .record-button:hover {
 
-    color:
-        var(--sage-deep);
+            transform: scale(1.05);
 
-}
+        }
 
 
-.description {
+        .record-button.recording {
 
-    margin: 0;
+            background: #a94343;
 
-    line-height: 1.7;
+            animation: pulse 1.2s infinite;
 
-    font-size: 15px;
+        }
 
-    color:
-        var(--brown-light);
 
-}
+        @keyframes pulse {
 
+            0% {
+                transform: scale(1);
+            }
 
-.form-area {
+            50% {
+                transform: scale(1.08);
+            }
 
-    position: relative;
+            100% {
+                transform: scale(1);
+            }
 
-    z-index: 2;
+        }
 
-}
 
+        .timer {
 
-label {
+            font-size: 38px;
 
-    display: block;
+            margin: 20px 0;
 
-    margin-bottom: 8px;
+            color: var(--terracotta);
 
-    font-size: 13px;
+            font-weight: bold;
 
-    font-weight: 500;
+        }
 
-    color:
-        var(--brown);
 
-}
+        .recording-text {
 
+            font-size: 16px;
 
-.input-wrapper {
+            margin-bottom: 15px;
 
-    position: relative;
+        }
 
-}
 
+        .stop-button {
 
-.input-wrapper span {
+            width: 100%;
 
-    position: absolute;
+            margin-top: 15px;
 
-    right: 17px;
+            padding: 15px;
 
-    top: 50%;
+            border-radius: 15px;
 
-    transform: translateY(-50%);
+            background: #5d5149;
 
-    font-size: 18px;
+            color: white;
 
-    opacity: .6;
+            font-size: 16px;
 
-}
+        }
 
 
-input {
+        /* =====================================================
+           AUDIO
+        ===================================================== */
 
-    width: 100%;
+        audio {
 
-    padding: 17px 48px 17px 18px;
+            width: 100%;
 
-    border-radius: 16px;
+            margin: 20px 0;
 
-    border:
-        1px solid
-        #D8C7B9;
+        }
 
-    background:
-        rgba(255,255,255,.88);
 
-    color:
-        var(--brown);
+        .send-button {
 
-    font-family:
-        "DM Sans",
-        sans-serif;
+            width: 100%;
 
-    font-size: 15px;
+            padding: 17px;
 
-    outline: none;
+            border-radius: 15px;
 
-    transition: .25s;
+            background: var(--sage-dark);
 
-}
+            color: white;
 
+            font-size: 16px;
 
-input:focus {
+            font-weight: bold;
 
-    border-color:
-        var(--sage);
+        }
 
-    box-shadow:
-        0 0 0 4px
-        rgba(163,177,138,.20);
 
-}
+        .restart-button {
 
+            width: 100%;
 
-.main-button {
+            padding: 14px;
 
-    width: 100%;
+            margin-bottom: 10px;
 
-    margin-top: 13px;
+            border-radius: 15px;
 
-    padding: 17px;
+            background: var(--cream);
 
-    border: none;
+            color: var(--text);
 
-    border-radius: 16px;
+            border:
+                1px solid #dacbbd;
 
-    background:
-        var(--terracotta);
+        }
 
-    color: white;
 
-    font-family:
-        "DM Sans",
-        sans-serif;
+        /* =====================================================
+           MESSAGE
+        ===================================================== */
 
-    font-size: 14px;
+        .status {
 
-    font-weight: 600;
+            margin-top: 20px;
 
-    letter-spacing: 1px;
+            padding: 15px;
 
-    cursor: pointer;
+            border-radius: 15px;
 
-    transition: .25s;
+            line-height: 1.5;
 
-}
+            text-align: center;
 
+        }
 
-.main-button:hover {
 
-    background:
-        var(--terracotta-dark);
+        .success {
 
-    transform:
-        translateY(-2px);
+            background: #e5efdf;
 
-    box-shadow:
-        0 10px 25px
-        rgba(159,80,53,.25);
+            color: #45613b;
 
-}
+        }
 
 
-/* =====================================================
-   RECORDING CARD
-===================================================== */
+        .error {
 
-.record-card {
+            background: #f7e1dc;
 
-    background:
-        rgba(249,244,235,.90);
+            color: #873f32;
 
-}
+        }
 
 
-.record-header {
+        /* =====================================================
+           FOOTER
+        ===================================================== */
 
-    text-align: center;
+        footer {
 
-    margin-bottom: 30px;
+            text-align: center;
 
-}
+            padding: 20px;
 
+            font-size: 13px;
 
-.record-header h2 {
+            color: #756b63;
 
-    color:
-        var(--terracotta);
+        }
 
-}
 
+        /* =====================================================
+           CACHÉ
+        ===================================================== */
 
-.divider {
+        .hidden {
 
-    display: flex;
+            display: none !important;
 
-    align-items: center;
+        }
 
-    justify-content: center;
 
-    gap: 10px;
+        /* =====================================================
+           MOBILE
+        ===================================================== */
 
-    margin: 12px 0;
+        @media(max-width: 500px) {
 
-    color:
-        var(--terracotta);
+            body {
 
-}
+                padding: 12px;
 
+            }
 
-.divider::before,
-.divider::after {
 
-    content: "";
+            .hero {
 
-    width: 60px;
+                min-height: 390px;
 
-    height: 1px;
+                border-radius: 28px;
 
-    background:
-        rgba(201,111,74,.35);
+            }
 
-}
 
+            .card {
 
-.record-layout {
+                padding: 25px 18px;
 
-    display: grid;
+                border-radius: 24px;
 
-    grid-template-columns:
-        1fr
-        1.25fr;
+            }
 
-    gap: 35px;
 
-    align-items: center;
+            .names {
 
-}
+                font-size: 43px;
 
+            }
 
-.message-intro {
+        }
 
-    padding: 20px;
-
-    background:
-        rgba(163,177,138,.12);
-
-    border-radius: 22px;
-
-}
-
-
-.message-intro .intro-small {
-
-    font-size: 12px;
-
-    letter-spacing: 2px;
-
-    color:
-        var(--terracotta);
-
-    font-weight: 600;
-
-    margin-bottom: 10px;
-
-}
-
-
-.message-intro p {
-
-    line-height: 1.7;
-
-    margin: 0;
-
-    color:
-        var(--brown-light);
-
-}
-
-
-.record-area {
-
-    text-align: center;
-
-}
-
-
-.timer {
-
-    font-family:
-        "Cormorant Garamond",
-        Georgia,
-        serif;
-
-    font-size: 54px;
-
-    font-weight: 600;
-
-    color:
-        var(--terracotta);
-
-    letter-spacing: 2px;
-
-}
-
-
-.timer-limit {
-
-    font-size: 11px;
-
-    color:
-        var(--brown-light);
-
-    margin-top: -8px;
-
-    margin-bottom: 18px;
-
-}
-
-
-.recording-text {
-
-    font-size: 13px;
-
-    color:
-        var(--brown-light);
-
-    margin-bottom: 20px;
-
-}
-
-
-.record-button {
-
-    width: 125px;
-
-    height: 125px;
-
-    border-radius: 50%;
-
-    border: 8px solid
-        rgba(201,111,74,.14);
-
-    outline:
-        1px solid
-        rgba(201,111,74,.35);
-
-    background:
-        var(--terracotta);
-
-    color: white;
-
-    font-size: 36px;
-
-    cursor: pointer;
-
-    box-shadow:
-        0 15px 40px
-        rgba(201,111,74,.30);
-
-    transition: .25s;
-
-}
-
-
-.record-button:hover {
-
-    transform:
-        scale(1.05);
-
-}
-
-
-.record-button.recording {
-
-    background:
-        #A94343;
-
-    animation:
-        pulse 1.2s infinite;
-
-}
-
-
-@keyframes pulse {
-
-    0% {
-        transform: scale(1);
-        box-shadow:
-            0 0 0 0
-            rgba(169,67,67,.40);
-    }
-
-    50% {
-        transform: scale(1.06);
-        box-shadow:
-            0 0 0 18px
-            rgba(169,67,67,.05);
-    }
-
-    100% {
-        transform: scale(1);
-        box-shadow:
-            0 0 0 0
-            rgba(169,67,67,0);
-    }
-
-}
-
-
-/* =====================================================
-   WAVEFORM
-===================================================== */
-
-.waveform {
-
-    height: 45px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    gap: 4px;
-
-    margin: 12px 0;
-
-    opacity: .45;
-
-}
-
-
-.waveform span {
-
-    width: 3px;
-
-    border-radius: 10px;
-
-    background:
-        var(--terracotta);
-
-}
-
-
-.waveform span:nth-child(1) { height: 10px; }
-.waveform span:nth-child(2) { height: 18px; }
-.waveform span:nth-child(3) { height: 27px; }
-.waveform span:nth-child(4) { height: 16px; }
-.waveform span:nth-child(5) { height: 35px; }
-.waveform span:nth-child(6) { height: 22px; }
-.waveform span:nth-child(7) { height: 42px; }
-.waveform span:nth-child(8) { height: 26px; }
-.waveform span:nth-child(9) { height: 34px; }
-.waveform span:nth-child(10) { height: 17px; }
-.waveform span:nth-child(11) { height: 29px; }
-.waveform span:nth-child(12) { height: 12px; }
-.waveform span:nth-child(13) { height: 36px; }
-.waveform span:nth-child(14) { height: 21px; }
-.waveform span:nth-child(15) { height: 30px; }
-.waveform span:nth-child(16) { height: 14px; }
-.waveform span:nth-child(17) { height: 25px; }
-
-
-/* =====================================================
-   STOP
-===================================================== */
-
-.stop-button {
-
-    width: 100%;
-
-    margin-top: 20px;
-
-    padding: 14px 18px;
-
-    border: none;
-
-    border-radius: 14px;
-
-    background:
-        #5D5149;
-
-    color: white;
-
-    font-family:
-        "DM Sans",
-        sans-serif;
-
-    font-size: 13px;
-
-    font-weight: 500;
-
-    cursor: pointer;
-
-}
-
-
-/* =====================================================
-   AUDIO REVIEW
-===================================================== */
-
-.review {
-
-    margin-top: 30px;
-
-    padding-top: 25px;
-
-    border-top:
-        1px solid
-        rgba(90,74,64,.12);
-
-}
-
-
-.review-title {
-
-    text-align: center;
-
-    font-family:
-        "Cormorant Garamond",
-        Georgia,
-        serif;
-
-    color:
-        var(--sage-deep);
-
-    font-size: 23px;
-
-    margin-bottom: 15px;
-
-}
-
-
-audio {
-
-    width: 100%;
-
-    height: 46px;
-
-    margin-bottom: 15px;
-
-}
-
-
-.restart-button {
-
-    width: 100%;
-
-    padding: 14px;
-
-    margin-bottom: 10px;
-
-    border-radius: 14px;
-
-    border:
-        1px solid
-        #D8C7B9;
-
-    background:
-        var(--cream);
-
-    color:
-        var(--brown);
-
-    font-family:
-        "DM Sans",
-        sans-serif;
-
-    font-size: 13px;
-
-    cursor: pointer;
-
-}
-
-
-.send-button {
-
-    width: 100%;
-
-    padding: 17px;
-
-    border: none;
-
-    border-radius: 14px;
-
-    background:
-        var(--sage-dark);
-
-    color: white;
-
-    font-family:
-        "DM Sans",
-        sans-serif;
-
-    font-size: 13px;
-
-    font-weight: 600;
-
-    letter-spacing: .5px;
-
-    cursor: pointer;
-
-    transition: .25s;
-
-}
-
-
-.send-button:hover {
-
-    background:
-        var(--sage-deep);
-
-    transform:
-        translateY(-2px);
-
-}
-
-
-.send-button:disabled {
-
-    opacity: .65;
-
-    cursor:
-        not-allowed;
-
-    transform: none;
-
-}
-
-
-/* =====================================================
-   STATUS
-===================================================== */
-
-.status {
-
-    padding: 22px;
-
-    border-radius: 22px;
-
-    text-align: center;
-
-    line-height: 1.6;
-
-    margin-bottom: 22px;
-
-    font-size: 14px;
-
-}
-
-
-.success {
-
-    background:
-        rgba(229,239,223,.94);
-
-    color:
-        #45613B;
-
-    border:
-        1px solid
-        rgba(104,120,87,.18);
-
-}
-
-
-.error {
-
-    background:
-        rgba(247,225,220,.94);
-
-    color:
-        #873F32;
-
-    border:
-        1px solid
-        rgba(159,80,53,.15);
-
-}
-
-
-/* =====================================================
-   THANK YOU
-===================================================== */
-
-.thank-you {
-
-    text-align: center;
-
-    background:
-        rgba(242,221,216,.91);
-
-}
-
-
-.thank-icon {
-
-    width: 65px;
-
-    height: 65px;
-
-    border-radius: 50%;
-
-    margin:
-        0 auto 15px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    background:
-        var(--rose);
-
-    color: white;
-
-    font-size: 25px;
-
-}
-
-
-.thank-you h2 {
-
-    font-family:
-        "Great Vibes",
-        cursive;
-
-    font-size: 48px;
-
-    color:
-        var(--terracotta);
-
-    margin-bottom: 10px;
-
-}
-
-
-.thank-you p {
-
-    color:
-        var(--brown-light);
-
-    line-height: 1.7;
-
-    margin: 5px;
-
-}
-
-
-/* =====================================================
-   SECURITY
-===================================================== */
-
-.security {
-
-    text-align: center;
-
-    color: white;
-
-    padding: 18px 10px;
-
-    font-size: 12px;
-
-    text-shadow:
-        0 2px 8px
-        rgba(0,0,0,.5);
-
-}
-
-
-.security strong {
-
-    display: block;
-
-    margin-top: 4px;
-
-}
-
-
-/* =====================================================
-   FOOTER
-===================================================== */
-
-footer {
-
-    text-align: center;
-
-    color: white;
-
-    padding: 10px 15px 20px;
-
-    font-family:
-        "Cormorant Garamond",
-        Georgia,
-        serif;
-
-    font-size: 17px;
-
-    text-shadow:
-        0 2px 8px
-        rgba(0,0,0,.55);
-
-}
-
-
-.footer-small {
-
-    font-family:
-        "DM Sans",
-        sans-serif;
-
-    font-size: 11px;
-
-    opacity: .85;
-
-    margin-top: 8px;
-
-}
-
-
-/* =====================================================
-   HIDDEN
-===================================================== */
-
-.hidden {
-
-    display: none !important;
-
-}
-
-
-/* =====================================================
-   MOBILE
-===================================================== */
-
-@media(max-width: 750px) {
-
-    body {
-
-        padding:
-            10px 8px 25px;
-
-        background-attachment:
-            scroll;
-
-    }
-
-
-    .hero {
-
-        min-height: 540px;
-
-        border-radius: 28px;
-
-    }
-
-
-    .hero-badge {
-
-        top: 15px;
-
-        right: 15px;
-
-        font-size: 10px;
-
-        padding:
-            9px 12px;
-
-    }
-
-
-    .welcome {
-
-        font-size: 29px;
-
-    }
-
-
-    .names {
-
-        font-size:
-            clamp(48px, 16vw, 72px);
-
-    }
-
-
-    .names span {
-
-        font-size: 42px;
-
-    }
-
-
-    .date {
-
-        font-size: 11px;
-
-        letter-spacing: 3px;
-
-    }
-
-
-    .hero-message {
-
-        font-size: 21px;
-
-    }
-
-
-    .card {
-
-        padding: 25px 18px;
-
-        border-radius: 24px;
-
-    }
-
-
-    .name-grid {
-
-        grid-template-columns: 1fr;
-
-        gap: 25px;
-
-    }
-
-
-    .intro {
-
-        gap: 14px;
-
-    }
-
-
-    .card-icon {
-
-        min-width: 54px;
-
-        width: 54px;
-
-        height: 54px;
-
-    }
-
-
-    h2 {
-
-        font-size: 25px;
-
-    }
-
-
-    .record-layout {
-
-        grid-template-columns: 1fr;
-
-        gap: 20px;
-
-    }
-
-
-    .message-intro {
-
-        text-align: center;
-
-    }
-
-
-    .record-button {
-
-        width: 115px;
-
-        height: 115px;
-
-    }
-
-
-}
-
-
-/* =====================================================
-   VERY SMALL MOBILE
-===================================================== */
-
-@media(max-width: 390px) {
-
-    .hero {
-
-        min-height: 500px;
-
-    }
-
-
-    .small-title {
-
-        letter-spacing: 3px;
-
-        font-size: 10px;
-
-    }
-
-
-    .welcome {
-
-        font-size: 25px;
-
-    }
-
-
-    .names {
-
-        font-size: 47px;
-
-    }
-
-
-    .names span {
-
-        font-size: 36px;
-
-    }
-
-
-    .hero-message {
-
-        font-size: 18px;
-
-    }
-
-}
-
-</style>
+    </style>
 
 </head>
 
@@ -1546,211 +703,154 @@ footer {
 <div class="page">
 
 
-<!-- =====================================================
-     HERO
-===================================================== -->
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
 
-<section class="hero">
+    <section class="hero">
 
-    <div class="hero-badge">
-        ♡ Merci pour votre présence
-    </div>
+        <div class="hero-content">
 
+            <div class="small-title">
 
-    <div class="hero-content">
+                LIVRE D'OR AUDIO
 
-        <div class="small-title">
-            ♡ &nbsp; LIVRE D'OR AUDIO &nbsp; ♡
-        </div>
-
-
-        <div class="welcome">
-            Bienvenue à notre mariage
-        </div>
-
-
-        <div class="names">
-
-            HENINTSOA
-
-            <span>&</span>
-
-            NAJAINA
-
-        </div>
-
-
-        <div class="date">
-            ♡ &nbsp; 04 OCTOBRE 2026 &nbsp; ♡
-        </div>
-
-
-        <div class="hero-line">
-            ───── ♡ ─────
-        </div>
-
-
-        <div class="hero-message">
-
-            Votre voix sera notre
-            <br>
-            plus beau souvenir.
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     NOM
-===================================================== -->
-
-<section
-    class="card"
-    id="nameSection"
->
-
-    <div class="name-grid">
-
-
-        <div class="intro">
-
-            <div class="card-icon sage-icon">
-                ♡
             </div>
 
 
-            <div>
+            <div class="welcome">
 
-                <div class="section-label">
-                    AVANT DE COMMENCER
-                </div>
+                Bienvenue à notre mariage
 
-
-                <h2>
-                    Laissez-nous un message
-                </h2>
+            </div>
 
 
-                <p class="description">
+            <div class="names">
 
-                    Un souvenir, un conseil,
-                    une bénédiction ou simplement
-                    quelques mots d'amour. ❤️
+                HENINTSOA
 
-                </p>
+                <span>&</span>
+
+                NAJAINA
+
+            </div>
+
+
+            <div class="date">
+
+                04 OCTOBRE 2026
+
+            </div>
+
+
+            <div class="hero-line">
+
+                ───── ♡ ─────
+
+            </div>
+
+
+            <div class="hero-message">
+
+                Votre voix sera notre<br>
+                plus beau souvenir.
 
             </div>
 
         </div>
 
-
-        <div class="form-area">
-
-            <label for="guestName">
-                Votre prénom
-            </label>
-
-
-            <div class="input-wrapper">
-
-                <input
-                    type="text"
-                    id="guestName"
-                    placeholder="Exemple : Marie"
-                    maxlength="50"
-                    autocomplete="name"
-                >
-
-                <span>
-                    ♡
-                </span>
-
-            </div>
-
-
-            <button
-                class="main-button"
-                id="startButton"
-            >
-                🎙️ &nbsp; CONTINUER
-            </button>
-
-        </div>
-
-    </div>
-
-</section>
+    </section>
 
 
 
-<!-- =====================================================
-     ENREGISTREMENT
-===================================================== -->
+    <!-- =====================================================
+         PRENOM
+    ====================================================== -->
 
-<section
-    class="card record-card hidden"
-    id="recordSection"
->
+    <section class="card" id="nameSection">
 
+        <div class="card-icon sage-icon">
 
-    <div class="record-header">
+            ♡
 
-        <div class="section-label">
-            VOTRE MESSAGE
         </div>
 
 
         <h2>
-            Enregistrez votre message
+
+            LAISSEZ-NOUS UN MESSAGE
+
         </h2>
-
-
-        <div class="divider">
-            ♡
-        </div>
 
 
         <p class="description">
 
-            Parlez à cœur ouvert, partagez
-            un souvenir, un conseil ou un mot doux...
+            Un souvenir, un conseil, une bénédiction
+            ou simplement quelques mots d'amour. ❤️
 
         </p>
 
-    </div>
+
+        <label for="guestName">
+
+            Votre prénom
+
+        </label>
+
+
+        <input
+            type="text"
+            id="guestName"
+            placeholder="Exemple : Marie"
+            maxlength="50"
+        >
+
+
+        <button
+            class="main-button"
+            id="startButton"
+        >
+
+            🎙️ CONTINUER
+
+        </button>
+
+    </section>
 
 
 
-    <div class="record-layout">
+    <!-- =====================================================
+         ENREGISTREMENT
+    ====================================================== -->
 
+    <section
+        class="card hidden"
+        id="recordSection"
+    >
 
-        <div class="message-intro">
+        <div class="card-icon terracotta-icon">
 
-            <div class="intro-small">
-                POUR LES MARIÉS
-            </div>
-
-
-            <p>
-
-                Bonjour
-                <strong id="displayName"></strong>
-                ❤️
-
-                <br><br>
-
-                Prenez quelques instants pour
-                leur laisser un message qu'ils
-                pourront écouter encore et encore.
-
-            </p>
+            🎙️
 
         </div>
 
+
+        <h2>
+
+            VOTRE MESSAGE
+
+        </h2>
+
+
+        <p class="description">
+
+            Bonjour <strong id="displayName"></strong> ❤️
+
+            <br><br>
+
+            Partagez quelques mots pour les mariés.
+
+        </p>
 
 
         <div class="record-area">
@@ -1760,12 +860,9 @@ footer {
                 id="timer"
                 class="timer"
             >
+
                 00:00
-            </div>
 
-
-            <div class="timer-limit">
-                DURÉE MAXIMALE : 02:00
             </div>
 
 
@@ -1773,29 +870,8 @@ footer {
                 id="recordingText"
                 class="recording-text"
             >
-                Appuyez sur le bouton pour commencer
-            </div>
 
-
-            <div class="waveform">
-
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
+                Appuyez pour commencer
 
             </div>
 
@@ -1803,9 +879,10 @@ footer {
             <button
                 id="recordButton"
                 class="record-button"
-                aria-label="Commencer l'enregistrement"
             >
+
                 🎙️
+
             </button>
 
 
@@ -1813,134 +890,64 @@ footer {
                 id="stopButton"
                 class="stop-button hidden"
             >
-                ⏹️ &nbsp; ARRÊTER L'ENREGISTREMENT
+
+                ⏹️ ARRÊTER L'ENREGISTREMENT
+
             </button>
 
 
         </div>
 
-    </div>
-
-
-
-    <!-- =================================================
-         LECTEUR
-    ================================================== -->
-
-    <div
-        class="review hidden"
-        id="reviewSection"
-    >
-
-        <div class="review-title">
-            Écoutez votre message ♡
-        </div>
-
 
         <audio
             id="audioPreview"
+            class="hidden"
             controls
         ></audio>
 
 
         <button
             id="restartButton"
-            class="restart-button"
+            class="restart-button hidden"
         >
-            ↻ &nbsp; RECOMMENCER
+
+            ↻ RECOMMENCER
+
         </button>
 
 
         <button
             id="sendButton"
-            class="send-button"
+            class="send-button hidden"
         >
-            💌 &nbsp; ENVOYER MON MESSAGE
+
+            💌 ENVOYER MON MESSAGE
+
         </button>
 
-    </div>
-
-
-</section>
+    </section>
 
 
 
-<!-- =====================================================
-     STATUS
-===================================================== -->
+    <!-- =====================================================
+         MESSAGE
+    ====================================================== -->
 
-<div
-    id="status"
-    class="status hidden"
-></div>
-
-
-
-<!-- =====================================================
-     THANK YOU
-===================================================== -->
-
-<section
-    class="card thank-you hidden"
-    id="thankYou"
->
-
-    <div class="thank-icon">
-        ♡
-    </div>
+    <div
+        id="status"
+        class="status hidden"
+    ></div>
 
 
-    <h2>
-        Merci !
-    </h2>
+    <footer>
 
+        HENINTSOA & NAJAINA ♡
 
-    <p>
-        Votre message a bien été enregistré.
-    </p>
+        <br>
 
-
-    <p>
-        Il fera partie de nos souvenirs
-        pour toujours. ❤️
-    </p>
-
-</section>
-
-
-
-<!-- =====================================================
-     SECURITY
-===================================================== -->
-
-<div class="security">
-
-    🔒
-
-    <strong>
-        Vos messages sont sécurisés
-    </strong>
-
-    Vos messages ne seront visibles
-    que par les mariés.
-
-</div>
-
-
-
-<!-- =====================================================
-     FOOTER
-===================================================== -->
-
-<footer>
-
-    HENINTSOA & NAJAINA ♡
-
-    <div class="footer-small">
         Merci de participer à notre livre d'or audio.
-    </div>
 
-</footer>
+    </footer>
 
 
 </div>
@@ -1949,9 +956,11 @@ footer {
 
 <script>
 
-/* =====================================================
+
+/* =========================================================
    SUPABASE
-===================================================== */
+========================================================= */
+
 
 const SUPABASE_URL =
     "https://prwrmivexadjyonqrxbv.supabase.co";
@@ -1969,9 +978,10 @@ const supabaseClient =
 
 
 
-/* =====================================================
+/* =========================================================
    VARIABLES
-===================================================== */
+========================================================= */
+
 
 let guestName = "";
 
@@ -1987,9 +997,10 @@ let seconds = 0;
 
 
 
-/* =====================================================
+/* =========================================================
    ELEMENTS
-===================================================== */
+========================================================= */
+
 
 const nameSection =
     document.getElementById("nameSection");
@@ -1997,14 +1008,6 @@ const nameSection =
 
 const recordSection =
     document.getElementById("recordSection");
-
-
-const reviewSection =
-    document.getElementById("reviewSection");
-
-
-const thankYou =
-    document.getElementById("thankYou");
 
 
 const guestNameInput =
@@ -2052,9 +1055,10 @@ const status =
 
 
 
-/* =====================================================
+/* =========================================================
    MESSAGE
-===================================================== */
+========================================================= */
+
 
 function showMessage(message, type) {
 
@@ -2068,6 +1072,7 @@ function showMessage(message, type) {
 }
 
 
+
 function hideMessage() {
 
     status.classList.add("hidden");
@@ -2076,9 +1081,10 @@ function hideMessage() {
 
 
 
-/* =====================================================
+/* =========================================================
    PRENOM
-===================================================== */
+========================================================= */
+
 
 startButton.addEventListener(
     "click",
@@ -2095,9 +1101,8 @@ startButton.addEventListener(
                 "error"
             );
 
-            guestNameInput.focus();
-
             return;
+
         }
 
 
@@ -2117,39 +1122,15 @@ startButton.addEventListener(
 
         hideMessage();
 
-
-        recordSection.scrollIntoView({
-            behavior: "smooth",
-            block: "center"
-        });
-
     }
 );
 
 
 
-/* =====================================================
-   ENTRÉE CLAVIER
-===================================================== */
+/* =========================================================
+   DEMARRER ENREGISTREMENT
+========================================================= */
 
-guestNameInput.addEventListener(
-    "keydown",
-    function(event) {
-
-        if (event.key === "Enter") {
-
-            startButton.click();
-
-        }
-
-    }
-);
-
-
-
-/* =====================================================
-   ENREGISTREMENT
-===================================================== */
 
 recordButton.addEventListener(
     "click",
@@ -2157,22 +1138,11 @@ recordButton.addEventListener(
 
         try {
 
-            if (
-                !navigator.mediaDevices ||
-                !navigator.mediaDevices.getUserMedia
-            ) {
-
-                throw new Error(
-                    "Votre navigateur ne permet pas l'utilisation du microphone."
-                );
-
-            }
-
-
             const stream =
-                await navigator.mediaDevices.getUserMedia({
-                    audio: true
-                });
+                await navigator.mediaDevices
+                    .getUserMedia({
+                        audio: true
+                    });
 
 
             audioChunks = [];
@@ -2182,9 +1152,10 @@ recordButton.addEventListener(
 
 
             if (
-                MediaRecorder.isTypeSupported(
-                    "audio/webm"
-                )
+                MediaRecorder
+                    .isTypeSupported(
+                        "audio/webm"
+                    )
             ) {
 
                 mimeType =
@@ -2245,23 +1216,19 @@ recordButton.addEventListener(
                         );
 
 
-                    reviewSection.classList.remove(
+                    audioPreview.classList.remove(
                         "hidden"
                     );
 
 
-                    stopButton.classList.add(
+                    sendButton.classList.remove(
                         "hidden"
                     );
 
 
-                    recordButton.classList.remove(
-                        "recording"
+                    restartButton.classList.remove(
+                        "hidden"
                     );
-
-
-                    recordingText.textContent =
-                        "Message enregistré ❤️";
 
 
                     stream
@@ -2270,12 +1237,6 @@ recordButton.addEventListener(
                             track =>
                                 track.stop()
                         );
-
-
-                    reviewSection.scrollIntoView({
-                        behavior: "smooth",
-                        block: "center"
-                    });
 
                 };
 
@@ -2288,13 +1249,13 @@ recordButton.addEventListener(
             );
 
 
-            recordingText.textContent =
-                "🎙️ Enregistrement en cours...";
-
-
             stopButton.classList.remove(
                 "hidden"
             );
+
+
+            recordingText.textContent =
+                "🎙️ Enregistrement en cours...";
 
 
             seconds = 0;
@@ -2311,15 +1272,16 @@ recordButton.addEventListener(
 
             hideMessage();
 
+
         }
 
         catch(error) {
 
             console.error(error);
 
+
             showMessage(
-                error.message ||
-                "Impossible d'accéder au microphone.",
+                "Impossible d'accéder au microphone. Autorisez le microphone dans votre navigateur.",
                 "error"
             );
 
@@ -2330,46 +1292,48 @@ recordButton.addEventListener(
 
 
 
-/* =====================================================
+/* =========================================================
    TIMER
-===================================================== */
+========================================================= */
+
 
 function updateTimer() {
 
     const minutes =
         Math.floor(seconds / 60)
-        .toString()
-        .padStart(2, "0");
+            .toString()
+            .padStart(2, "0");
 
 
     const secs =
         (seconds % 60)
-        .toString()
-        .padStart(2, "0");
+            .toString()
+            .padStart(2, "0");
 
 
     timer.textContent =
         minutes + ":" + secs;
 
 
-    if (seconds >= 120) {
+    seconds++;
+
+
+    /* Maximum 2 minutes */
+
+    if (seconds > 120) {
 
         stopRecording();
 
-        return;
-
     }
-
-
-    seconds++;
 
 }
 
 
 
-/* =====================================================
-   STOP
-===================================================== */
+/* =========================================================
+   ARRETER
+========================================================= */
+
 
 stopButton.addEventListener(
     "click",
@@ -2377,11 +1341,13 @@ stopButton.addEventListener(
 );
 
 
+
 function stopRecording() {
 
     if (
         mediaRecorder &&
-        mediaRecorder.state !== "inactive"
+        mediaRecorder.state !==
+        "inactive"
     ) {
 
         mediaRecorder.stop();
@@ -2411,9 +1377,10 @@ function stopRecording() {
 
 
 
-/* =====================================================
+/* =========================================================
    RECOMMENCER
-===================================================== */
+========================================================= */
+
 
 restartButton.addEventListener(
     "click",
@@ -2421,59 +1388,42 @@ restartButton.addEventListener(
 
         audioBlob = null;
 
-        audioChunks = [];
+        audioPreview.src = "";
 
-
-        if (audioPreview.src) {
-
-            URL.revokeObjectURL(
-                audioPreview.src
-            );
-
-        }
-
-
-        audioPreview.removeAttribute(
-            "src"
-        );
-
-
-        audioPreview.load();
-
-
-        reviewSection.classList.add(
+        audioPreview.classList.add(
             "hidden"
         );
 
+        sendButton.classList.add(
+            "hidden"
+        );
+
+        restartButton.classList.add(
+            "hidden"
+        );
 
         timer.textContent =
             "00:00";
 
-
         recordingText.textContent =
-            "Appuyez sur le bouton pour commencer";
-
+            "Appuyez pour commencer";
 
         hideMessage();
-
-
-        recordSection.scrollIntoView({
-            behavior: "smooth",
-            block: "center"
-        });
 
     }
 );
 
 
 
-/* =====================================================
+/* =========================================================
    ENVOYER SUPABASE
-===================================================== */
+========================================================= */
+
 
 sendButton.addEventListener(
     "click",
     async function() {
+
 
         if (!audioBlob) {
 
@@ -2487,7 +1437,9 @@ sendButton.addEventListener(
         }
 
 
-        sendButton.disabled = true;
+        sendButton.disabled =
+            true;
+
 
         sendButton.textContent =
             "⏳ ENVOI EN COURS...";
@@ -2495,9 +1447,8 @@ sendButton.addEventListener(
 
         try {
 
-            /* =========================================
-               LIMITE
-            ========================================= */
+
+            /* Taille maximum */
 
             if (
                 audioBlob.size >
@@ -2511,9 +1462,7 @@ sendButton.addEventListener(
             }
 
 
-            /* =========================================
-               NOM SECURISE
-            ========================================= */
+            /* Nom sécurisé */
 
             const safeName =
                 guestName
@@ -2539,9 +1488,7 @@ sendButton.addEventListener(
                 ".webm";
 
 
-            /* =========================================
-               UPLOAD
-            ========================================= */
+            /* Upload */
 
             const {
                 data,
@@ -2576,20 +1523,16 @@ sendButton.addEventListener(
             );
 
 
-            /* =========================================
-               SUCCES
-            ========================================= */
-
             sendButton.textContent =
                 "✅ MESSAGE ENVOYÉ";
 
 
-            reviewSection.classList.add(
+            audioPreview.classList.add(
                 "hidden"
             );
 
 
-            thankYou.classList.remove(
+            restartButton.classList.add(
                 "hidden"
             );
 
@@ -2599,7 +1542,6 @@ sendButton.addEventListener(
                 "💌 Merci " +
                 guestName +
                 " !<br><br>" +
-
                 "Votre message a bien été envoyé aux mariés. ❤️",
 
                 "success"
@@ -2607,15 +1549,10 @@ sendButton.addEventListener(
             );
 
 
-            thankYou.scrollIntoView({
-                behavior: "smooth",
-                block: "center"
-            });
-
-
         }
 
         catch(error) {
+
 
             console.error(error);
 
@@ -2642,8 +1579,10 @@ sendButton.addEventListener(
     }
 );
 
+
 </script>
 
 
 </body>
+
 </html>
